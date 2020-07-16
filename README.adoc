@@ -2,7 +2,11 @@
 
 Allow ESP32-CAM module to talk to W5500 Ethernet module trough HSPI
 as SPI (VSPI) pins are used to connect the camera module
-  
+
+== How to use ==
+
+Check out examples/ESP32EthCamera.ino as it initializes the W5500, listens on port 80 and sends the JPG stream from the camera directly to the web client
+
 == Assembled from ==
 * Arduino Ethernet library v2.0.0
 * ESP32-CAM example "CameraWebServer"

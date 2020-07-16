@@ -1,0 +1,41 @@
+= EXAMPLE for Ethernet Library for ESP32-CAM using HSPI interface and W5500 module =
+
+Allow ESP32-CAM module to talk to W5500 Ethernet module trough HSPI
+as SPI (VSPI) pins are used to connect the camera module
+
+== Hardware ==
+* ESP32-CAM AI-Thinker module (changing the CAMERA PINS should work with any other esp32-cam, but I have not tested)
+* W5500 Ethernet module (I removed the pieces for 5100 and 5200 from the library as I don't need them)
+  
+=== Connection ===
+* GPI0 to GND and then reset to program
+* GPI1 and GPI3 to your TX, RX uart for programming
+* You need to disable power to the W5500 in order to program ESP32 (no idea why)
+  
+* ESP32-CAM  -> W5500
+* GPIO12     -> MISO
+* GPIO13     -> MOSI
+* GPIO14     -> SCLK
+* GPIO2      -> SCS
+* GND        -> GND
+  
+I am powering both from same externam 5V source
+  
+Since GPIO2 is used for chip select this should not affect SD card operations as SD card is also using HSPI spi interface
+
+== How to use ==
+In the setup() function you can clearly see the camera initialization part.
+Right after it comes the Ethernet initialization part. Make sure you include 
+ #include <EthernetSPI2.h>
+and not the regular Ethernet.h as the class name is the same as embedded/internal Ethernet library.
+
+select mac address you like and start EthernetServer on port you want (80 is default http)
+
+Ethernet.begin(mac, ip) -> this will start it with static IP
+Ethernet.begin(mac) -> this will fetch the IP from the DHCPD server
+
+loop() function for "any" request starts the streaming of JPG's
+
+streaming of JPG's is done by stream_h() that will stop streaming when client disconnects.
+
+You should in loop() add parsing of the input, checking what url is requested and accordingly serve different things and stream only when you want to. You can add authentification etc etc.. 
