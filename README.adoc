@@ -8,8 +8,8 @@ as SPI (VSPI) pins are used to connect the camera module
 * ESP32-CAM example "CameraWebServer"
 
 == Licence ==
-My work - public domain / unlicence
-Their work - Whatever is copied from those two is whatever their licence is
+* My work - public domain / unlicence
+* Their work - Whatever is copied from those two is whatever their licence is
   
 == Hardware ==
 * ESP32-CAM AI-Thinker module (changing the CAMERA PINS should work with any other esp32-cam, but I have not tested)
