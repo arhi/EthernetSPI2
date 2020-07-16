@@ -3,19 +3,19 @@
 Allow ESP32-CAM module to talk to W5500 Ethernet module trough HSPI
 as SPI (VSPI) pins are used to connect the camera module
   
-==Assembled from==
+== Assembled from ==
 * Arduino Ethernet library v2.0.0
 * ESP32-CAM example "CameraWebServer"
 
-==Licence==
+== Licence ==
 My work - public domain / unlicence
 Their work - Whatever is copied from those two is whatever their licence is
   
-==Hardware==
+== Hardware ==
 * ESP32-CAM AI-Thinker module (changing the CAMERA PINS should work with any other esp32-cam, but I have not tested)
 * W5500 Ethernet module (I removed the pieces for 5100 and 5200 from the library as I don't need them)
   
-===Connection===
+=== Connection ===
 * GPI0 to GND and then reset to program
 * GPI1 and GPI3 to your TX, RX uart for programming
 * You need to disable power to the W5500 in order to program ESP32 (no idea why)
