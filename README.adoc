@@ -11,6 +11,8 @@ Check out examples/ESP32EthCamera.ino as it initializes the W5500, listens on po
 * Arduino Ethernet library v2.0.0
 * ESP32-CAM example "CameraWebServer"
 
+This is mostly copy/paste and search/replace, there's nothing "smart" done here. Ethernet library is search/replace to not use SPI but SPI2 and I renamed W5100 to W5500 (mostly so I'm sure I'm using the right one) and I initialized SPI2 as HSPI. The example .INO file is adapted to use this library and send jpeg stream.
+
 == Licence ==
 * My work - public domain / unlicence
 * Their work - Whatever is copied from those two is whatever their licence is
